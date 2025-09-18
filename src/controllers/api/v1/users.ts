@@ -3,16 +3,17 @@ import type { Users } from '../../../models/users'
 import { UserService } from '../../../services/UserService'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import { readFileSync } from 'fs'
-import path from 'path'
 
 export class UsersController {
     userService: UserService
-    privateKey: Buffer
+    privateKey: string
 
     constructor() {
         this.userService = new UserService()
-        this.privateKey = readFileSync(path.join(process.cwd(), 'keys', 'jwtRS256.key'))
+        if (process.env.JWT_PRIVATE_KEY === undefined) {
+            throw new Error('JWT Private Key is not defined in environment variables')
+        }
+        this.privateKey = process.env.JWT_PRIVATE_KEY
     }
 
     register = async (
