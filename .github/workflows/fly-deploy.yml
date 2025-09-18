@@ -11,10 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     concurrency: deploy-group    # optional: ensure only one action runs at a time
     steps:
-      - name: Create Private Key
-        run: npm run keys
-      - name: Migrate database and Seed
-        run: npm run setup
       - uses: actions/checkout@v4
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy --remote-only

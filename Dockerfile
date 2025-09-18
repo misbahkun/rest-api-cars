@@ -24,6 +24,9 @@ RUN apt-get update -qq && \
 COPY --link package.json package-lock.json ./
 RUN npm ci --include=dev
 
+RUN npm run keys
+RUN npm run setup
+
 # Copy application code
 COPY --link . .
 
