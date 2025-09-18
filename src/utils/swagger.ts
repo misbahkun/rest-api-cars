@@ -25,7 +25,7 @@ const options: swaggerJSDoc.Options = {
                 description: 'Development Server',
             },
             {
-                url: 'https://rest-api-cars.fly.dev',
+                url: 'https://rest-api-cars-divine-wildflower-8002.fly.dev',
                 description: 'Production Server',
             },
         ],
