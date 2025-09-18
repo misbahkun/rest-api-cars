@@ -18,6 +18,3 @@ primary_region = 'sin'
 
 [[vm]]
   size = 'shared-cpu-1x'
-
-[deploy]
-  release_command = 'npm run setup'
